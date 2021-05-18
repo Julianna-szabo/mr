@@ -9,7 +9,7 @@
 #' @importFrom data.table data.table
 #' @importFrom httr GET content
 #' @examples
-#' get_usdhuf_2()
+#' get_usdhuf_2("USD", "HUF")
 
 get_usdhuf_2 <- function(start_date = Sys.Date() - 30, end_date = Sys.Date(), retried = 0) {
   tryCatch({
@@ -22,11 +22,11 @@ get_usdhuf_2 <- function(start_date = Sys.Date() - 30, end_date = Sys.Date(), re
         symbols = "HUF"
       )
     )
-    exchange_rates <- content(response)$rates
+    exchange_rates_huf <- content(response)$rates
 
     usdhuf_rates <- data.table(
-      date = as.Date(names(exchange_rates)),
-      usdhuf = as.numeric(unlist(exchange_rates))
+      date = as.Date(names(exchange_rates_huf)),
+      usdhuf = as.numeric(unlist(exchange_rates_huf))
     )
     assert_numeric(usdhuf_rates$usdhuf, lower = 250, upper = 400)
   }, error = function(e) {
