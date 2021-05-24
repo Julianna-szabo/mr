@@ -61,5 +61,3 @@ get_usdhuf_2 <- function(start_date = Sys.Date() - 30, end_date = Sys.Date(), re
   usdhuf_rates
 }
 
-get_usdhuf_2()
-

@@ -30,5 +30,5 @@ get_exchange_rate(
 Getting exchange rate between USD and HUF for 30 days
 }
 \examples{
-get_exchange_rate()
+get_exchange_rate("USD", "HUF")
 }

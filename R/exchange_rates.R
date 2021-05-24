@@ -9,7 +9,7 @@
 #' @importFrom data.table data.table
 #' @importFrom httr GET content
 #' @examples
-#' get_exchange_rate()
+#' get_exchange_rate("USD", "HUF")
 
 get_exchange_rate <- function(base_currency, end_currency, start_date = Sys.Date() - 30, end_date = Sys.Date(), retried = 0) {
   tryCatch({
@@ -37,6 +37,3 @@ get_exchange_rate <- function(base_currency, end_currency, start_date = Sys.Date
   })
   rates
 }
-
-
-get_exchange_rate("USD", "HUF")
