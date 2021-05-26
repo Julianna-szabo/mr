@@ -7,6 +7,7 @@
 #' @importFrom logger log_error log_info
 #' @examples
 #' get_usdhuf()
+
 get_usdhuf <- function(retried = 0) {
   tryCatch({
     usdhuf <- fromJSON('https://api.exchangerate.host/latest?base=USD&symbols=HUF')$rates$HUF
